@@ -100,17 +100,17 @@ export function MUIProduct() {
       </main>
       <Stack>
         <Box>
-          {product.reviews.map((review) => {
+          {/* {product.reviews.map((review) => {
             return review.length === 0 ? (
               <Box width="200px" height="200px" sx={{ backgroundColor: "blue" }}>
-                <Typography>Hoo</Typography>
+                <Typography>NO TIME TO MAKE REVIEWS, SHIT!</Typography>
               </Box>
             ) : (
               <Box width="200px" height="200px" sx={{ backgroundColor: "red" }}>
-                <Typography>heyy</Typography>
+                <Typography></Typography>
               </Box>
             );
-          })}
+          })} */}
         </Box>
       </Stack>
     </Container>
