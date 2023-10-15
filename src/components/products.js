@@ -1,4 +1,4 @@
-import { Badge, Grid, Paper, IconButton, Typography, Container, Card, CardContent, CardActionArea, CardActions, CardMedia, Box, Link, Button, CardHeader, Tooltip, Autocomplete, Stack, useThemeProps, TextField } from "@mui/material";
+import { Grid, Typography, Container, Card, CardContent, CardMedia, Box, Link, Button, CardHeader, Tooltip, TextField } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import React, { useEffect, useState } from "react";

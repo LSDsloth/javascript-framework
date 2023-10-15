@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Container, Link, Divider, Grid, IconButton, List, ListItem, Stack, Typography, Card, CardHeader, CardContent, Button } from "@mui/material";
+import { Box, Container, Link, Divider, Grid, IconButton, List, ListItem, Typography, Card, CardHeader, CardContent, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -92,7 +92,11 @@ export const MUICart = () => {
 
                   <Box display="flex" justifyContent="space-between" sx={{ paddingY: "5px" }}>
                     <Typography sx={{ paddingY: "5px" }}>Discount:</Typography>
-                    <Typography sx={{ fontWeight: "bold" }}> {`-$${orderTotal !== discountTotal ? `${Math.abs(orderTotal - discountTotal)}` : "--"}`}</Typography>
+                    {orderTotal !== discountTotal ? (
+                      <Typography sx={{ fontWeight: "bold" }}> {`-$${orderTotal !== discountTotal ? `${Math.abs(orderTotal - discountTotal)}` : "--"}`}</Typography>
+                    ) : (
+                      <Typography sx={{ fontWeight: "bold" }}>--</Typography>
+                    )}
                   </Box>
                   <Divider />
                   <Box sx={{ paddingY: "5px", textAlign: "right" }}>
