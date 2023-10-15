@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { AppBar, Toolbar, IconButton, Typography, Container, Box, Stack, Button, Tooltip, Badge, Link } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Stack, Button, Tooltip, Badge, Link } from "@mui/material";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link as RouterLink } from "react-router-dom";
-// import { addToCart } from "./MuiProducts"; // Make sure to provide the correct path to MuiProducts
 
 export const MuiNavbar = () => {
-  const [cart, setCart] = useState([]);
   const [cartLength, setCartLength] = useState();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // Add this state
-
-  const updateCartLength = (length) => {
-    setCartLength(length);
-  };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
     setCartLength(storedCart.length);
   }, []);
-  console.log("Length is now " + cartLength);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);

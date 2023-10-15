@@ -5,29 +5,21 @@ import React, { useEffect, useState } from "react";
 import { useApi } from "../api/api";
 import { Link as RouterLink } from "react-router-dom";
 
-export const MuiProducts = (updateCartLength) => {
+export const MuiProducts = () => {
   const { data, isLoading, isError } = useApi("https://api.noroff.dev/api/v1/online-shop");
   const [cart, setCart] = useState([0]);
-  const [searchQuery, setSearchQuery] = useState(""); // State for the search query
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    // Load cart data from localStorage when the component mounts
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
   const addToCart = (item) => {
-    // Add item to cart state
     const updatedCart = [...cart, item];
     setCart(updatedCart);
-    console.log(updatedCart);
 
-    // Save the updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    // Update cart length in the Navbar component
-    console.log("Cart length updated:", updatedCart.length);
-    // updateCartLength(updatedCart.length);
   };
 
   if (isLoading) {
@@ -52,7 +44,7 @@ export const MuiProducts = (updateCartLength) => {
 
   return (
     <Container sx={{ marginY: "50px" }}>
-      <Box className="searchBar-wrapper">
+      <Box className="searchBar-wrapper" sx={{ marginBottom: "50px" }}>
         <TextField label="Search for a product" variant="outlined" fullWidth value={searchQuery} onChange={handleSearch} />
       </Box>
       <Grid container rowSpacing={{ xs: 2, md: 4 }} columnSpacing={{ xs: 1, md: 2 }}>
@@ -88,7 +80,6 @@ export const MuiProducts = (updateCartLength) => {
           ) : (
             <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 345, display: "block", margin: "0 auto" }}>
-                {/* <CardActionArea> */}
                 <Link component={RouterLink} to={`./product?${product.id}`}>
                   <Box sx={{ position: "relative", aspectRatio: "1 / 1", overflow: "hidden" }}>
                     <CardMedia aria-label="Product image" alt={product.title} loading="lazy" component="img" sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} image={product.imageUrl} />
@@ -120,7 +111,6 @@ export const MuiProducts = (updateCartLength) => {
                     </Tooltip>
                   </Box>
                 </CardContent>
-                {/* </CardActionArea> */}
               </Card>
             </Grid>
           );

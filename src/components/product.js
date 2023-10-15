@@ -3,10 +3,6 @@ import { useApi } from "../api/api";
 import { useEffect, useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-// console.log(queryString);
-
-// console.log(params);
-
 export function MUIProduct() {
   const unusableQueryString = document.location.search;
   const queryString = unusableQueryString.slice(1);
@@ -14,35 +10,16 @@ export function MUIProduct() {
   const [cart, setCart] = useState([0]);
 
   useEffect(() => {
-    // Load cart data from localStorage when the component mounts
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
   const addToCart = (item) => {
-    // Add item to cart state
     const updatedCart = [...cart, item];
     setCart(updatedCart);
-    console.log("added!");
 
-    // Save the updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    // Update cart length in the Navbar component
-    console.log("Cart length updated:", updatedCart.length);
   };
-
-  //   useEffect(() => {
-
-  //     fetch('https://api.noroff.dev/api/v1/online-shop')
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         // Handle the data, set states as needed
-  //       })
-  //       .catch(() => {
-  //         // Handle errors
-  //       });
-  //   }, [queryString]);
 
   if (isLoading) {
     return (
@@ -57,7 +34,6 @@ export function MUIProduct() {
   }
 
   const product = data.find((product) => product.id === queryString);
-  console.log(product);
 
   if (!product) {
     return <Box>Product not found</Box>;
@@ -120,8 +96,23 @@ export function MUIProduct() {
             </Stack>
           </Grid>
         </Grid>
+        <Grid></Grid>
       </main>
-      <aside></aside>
+      <Stack>
+        <Box>
+          {product.reviews.map((review) => {
+            return review.length === 0 ? (
+              <Box width="200px" height="200px" sx={{ backgroundColor: "blue" }}>
+                <Typography>Hoo</Typography>
+              </Box>
+            ) : (
+              <Box width="200px" height="200px" sx={{ backgroundColor: "red" }}>
+                <Typography>heyy</Typography>
+              </Box>
+            );
+          })}
+        </Box>
+      </Stack>
     </Container>
   );
 }
