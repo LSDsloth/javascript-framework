@@ -1,6 +1,6 @@
 # Your project title
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![eCom](https://github.com/LSDsloth/javascript-framework/assets/100310959/1a11ed70-dd62-4879-85b3-3122ee065934)
 
 A simple overview of the use/purpose of the project.
 
