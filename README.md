@@ -6,17 +6,9 @@ A simple overview of the use/purpose of the project.
 
 ## Description
 
-Add a more detailed description of what your project entails and set out to do.
-
-You can add some bullet points if you'd like to:
-
-- List item 1
-- List item 2
-- List item 3
+This is an e-commerce website where you can view a list of products. If you click an a product you will enter a page about that individual product. You will see details about it such as a title, description, price and a picture of it. You can also add a product to the basket. There is a seperate page for your basket where you can view the total price of all added products and checkout if you want. You can alse remove products from the basket.  
 
 ## Built With
-
-You can list a the tech stack that you've used over here
 
 - [React.js](https://reactjs.org/)
 - [MUI](https://mui.com/)
